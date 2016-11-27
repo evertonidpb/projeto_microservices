@@ -1,0 +1,30 @@
+Explicação do funcionamento do programa:
+
+
+-> Tem quatro aplicações dentro do projeto: o Eureka, o Web (que é o Zuul), e dois microservices: o clientes e o compras.
+
+-> Tanto clientes quanto compras possuem um CRUD completo.
+
+-> Com as 4 aplicações rodando, para acessar a listagem de clientes via  GET ou para gravar novos dados via POST use o caminho:
+    
+    localhost:8080/clientes
+
+
+-> Com as 4 aplicações rodando, para acessar a listagem de compras via  GET ou para gravar novos dados via POST use o caminho:
+   
+    localhost:8080/compras
+
+
+-> A relação dos microservices funciona assim: todo cliente possui um atributo chamado id_compra, é a partir dele que ocorre a relação entre as
+duas entidades (clientes e compras). Ao gravar um cliente com o atributo "id_compra" igual ao atributo id de uma compra, na hora de fazer a listagem ele mescla a compra com 
+o clienteas que realizou a tal compra. Para ter acesso a essa listagem juntando os dados das duas entidades é preciso primeiro popular as duas tabelas
+pelo POST com dados que relacionem a compra ao cliente e depois acessar a listagem pelo caminho abaixo:
+
+   localhost:8080/compras/clientes
+
+
+
+
+
+Grupo: EVerton B. da Silva
+       Jackson Luciano
